@@ -1,0 +1,44 @@
+<!-- Hogan.js file for the layout of every page -->
+<!doctype html>
+<html>
+  <head>
+    <title> {{title}} </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="/javascripts/global.js"></script>
+    <script type="text/javascript" src="/javascripts/ajax.js"></script>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script>
+      loadScripts();
+      if (window.location.pathname != '/login' && window.location.pathname != '/' && window.location.pathname != '/register/admin' && window.location.pathname != '/register/client'){
+        loginCheck();
+      }
+    </script>
+  </head>
+  <body>
+    <div id='wrap'>
+      <center>
+        <h1>CS4770: Group 6 project page!</h1>
+      </center>
+      <nav id="nav">
+        {{#nav}}
+          {{{item}}}
+        {{/nav}}
+      </nav>
+      <script>
+        if (localStorage.getItem('cs4770.login.loggedIn') == "true") {
+          var node = document.createElement('a');
+          node.setAttribute('onclick', 'logout()');
+          node.setAttribute('href', '/login');
+          node.setAttribute('id','out');
+          node.textContent = 'LOGOUT';
+          document.getElementById('nav').appendChild(node);
+        }
+      </script>
+      <div id="content">
+        {{$content}}
+        {{/content}}
+      </div>
+    </div>
+  </body>
+</html>

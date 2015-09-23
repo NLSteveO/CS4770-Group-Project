@@ -1,0 +1,31 @@
+<!-- Hogan.js file for the server page -->
+{{<layout}}
+  {{$content}}
+    <script type="text/javascript" src="/javascripts/serverScript.js"></script>
+    <script type="text/javascript" src="/javascripts/sshot.js"></script>
+    <center>
+      <h2>Network Topology</h2>
+    </center>
+    <div id="top2">
+      <div id ="main">		
+        <div id="networkBox">
+          {{#network}}
+            <script>insertNetwork("{{Name}}", "{{Type}}");</script>
+          {{/network}}
+          {{#conns}}
+            <script>connect("{{Network1}}", "{{Network2}}");</script>
+          {{/conns}}
+        </div >
+      </div>
+    </div>
+    <div id="bottom" class="deviceBox">
+        <h3>Devices List</h3>
+        {{#clients}}
+          <script>insertDevice("{{Username}}", "{{Token}}", "{{Network}}");</script>
+        {{/clients}}
+    </div>
+    <div id="logDiv">
+      <h3>Activity Log</h3>
+    </div>  
+  {{/content}}
+{{/layout}}

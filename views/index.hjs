@@ -1,0 +1,27 @@
+<!-- Hogan.js file for the login page -->
+{{<layout}}
+  {{$content}}
+    <br>
+    <div id="top">
+      <h2>Login</h2>
+      <h5 id="wrong" hidden>Your username or password was incorrect.</h5>
+      <label>Username: </label><input type="text" id="username" name="username" placeholder="username" /><br><br>
+      <label>Password: </label><input type="password" id="password" name="password" placeholder="password" /><br>
+      <input type="checkbox" id="remember" name="remember" />Remember me next time.<br><br>
+      <button name="login" onClick="login()">Login</button><br>
+      <script> auotFill(); </script>
+    </div>
+    <div id="bottom">
+      <div class="left">
+        <h2>Don't have an account?</h2>
+        <p> No need to fret just become a user now by registering<a onclick="valid();" href="/login">!</a> </p>
+        <a href="/register/client"><input type="button" name="newUser" value="Register Now"></a><br>
+      </div>
+      <div class="right">
+        <h2>Want to run your own sim?</h2>
+        <p> Then become an admin of your own simulation! </p>
+        <a href="/register/admin"><input type="button" name="newUser" value="Register Now"></a><br>
+      </div>
+    </div>
+  {{/content}}
+{{/layout}}

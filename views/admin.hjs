@@ -1,0 +1,62 @@
+<!-- Hogan.js file for the admin page -->
+{{<layout}}
+  {{$content}}
+    <script type="text/javascript" src="/javascripts/adminScript.js"></script>
+    <center>
+      <h2>Create your Simulation Framework!</h2>
+    </center>
+    <div id="top">
+      <div class="left">
+        <center><h3>Network Setup</h3></center>
+        <label>Network Name:</label>
+        <input type="text" name="networkName" id="networkName" /><br><br>
+        <label>Network Type:</label>
+        <select name="networkType" id="networkType" /><br><br>
+          <option>WiFi</option>
+          <option>GSM</option>
+        </select><br><br>
+        <button name="addNetwork" id="addNetwork" onClick="addNetwork()">Setup</button>
+      </div>
+      <div class="right">
+        <center><h3>Client Setup</h3></center>
+        <label>Number of Clients:</label>
+        <input type="text" size="10" name="clients" id="clients" /><br><br>
+        <button name="addClients" id="addClients" onClick="addClients()">Generate Tokens</button>
+      </div>
+    </div>
+    <div id="bottom">
+      <div class="left">
+        <center><h3>Networks:</h3></center>
+        <table frame="rhs" id="networkTable">
+          <th>Network Name</th>
+          <th>Network Type</th>
+          <th>Control</th>
+          {{#network}}
+            <tr>
+              <td>{{Name}}</td>
+              <td>{{Type}}</td>
+		      <td><button name="delNetwork" onClick="delNetwork()">Delete</button></td>
+			</tr>
+		  {{/network}}
+        </table>
+      </div>
+      <div class="right">
+        <center><h3>Clients:</h3></center>
+        <table frame="lhs" id="clientTable">
+          <th>TokenID</th>
+          <th>Email Address</th>
+          <th>Send</th>
+          <th>Control</th>
+          {{#clients}}
+            <tr>
+              <td>{{Token}}</td>
+              <td><input type="text" size="15" id="email{{Token}}" value="{{Email}}" /></td>
+              <td><button name="sendEmail" onClick="sendEmail()">Send</button></td>
+		      <td><button name="delClient" onClick="delClient()">Delete</button></td>
+			</tr>
+		  {{/clients}}
+        </table>
+      </div>
+    </div>
+  {{/content}}
+{{/layout}}

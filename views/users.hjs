@@ -1,0 +1,62 @@
+<!-- Hogan.js file for users listing page -->
+{{<layout}}
+  {{$content}}
+    <div id='content'>
+      <center>
+        <h2>Client Listings</h2>
+      </center>
+      <div id='top'>
+        <table>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Token</th>
+          <th>Type</th>
+          <th>Network</th>
+          <th>Simulation</th>
+          {{#users}}
+            <tr>
+              <td>{{Name}}</td>
+              <td>{{Username}}</td>
+              <td>{{Email}}</td>
+              <td>{{Token}}</td>
+              <td>{{Type}}</td>
+              <td>{{Network}}</td>
+	      <td>{{Sim}}</td>
+            </tr>
+          {{/users}}
+        </table><br>
+        <table>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Simulation</th>
+          <th>Clients</th>
+          {{#networks}}
+            <tr>
+              <td>{{Name}}</td>
+              <td>{{Type}}</td>
+              <td>{{Sim}}</td>
+              <td>
+                {{#Clients}}
+                  {{Token}}
+                {{/Clients}}
+              </td>
+            </tr>
+          {{/networks}}
+        </table><br>
+        <table>
+          <th>Network 1</th>
+          <th>Network 2</th>
+          <th>Simulation</th>
+          {{#conn}}
+            <tr>
+              <td>{{Network1}}</td>
+              <td>{{Network2}}</td>
+              <td>{{Sim}}</td>
+            </tr>
+          {{/conn}}
+        </table>
+      </div>
+    </div>
+  {{/content}}
+{{/layout}}

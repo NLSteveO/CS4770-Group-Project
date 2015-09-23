@@ -1,0 +1,83 @@
+<!-- Hogan.js file for the client page -->
+{{<layout}}
+  {{$content}}
+    <center>
+      <h2 id="name"></h2>
+    </center>
+    <div id="top">
+    </div>
+    <div id="bottom">
+    <table>
+          <tr>
+            <td>
+              <h3>Global Counter:</h3><h3 id="glob">0</h3><br>
+              <h3>Local Counter:</h3><h3 id="loca">0</h3><br>
+            </td>
+            <td>
+              <button name="increment" onClick="increase()">increment</button>
+            </td>
+          </tr>
+        </table>
+    </div>
+    <script>
+      document.getElementById('name').innerHTML = "Hello " + localStorage.getItem("cs4770.login.name");
+      var topDiv = document.getElementById('top');
+      var label = document.createElement('label');
+      label.innerHTML = 'Network:';
+      topDiv.appendChild(label);
+      var menu = document.createElement('select');
+      menu.id = 'networks';
+      var option = document.createElement('option');
+      option.value = 'none';
+      option.text = 'No Network';
+      option.id = 'none';
+      topDiv.appendChild(menu);
+      loadNetworks();
+      menu.add(option);
+      var button = document.createElement('button');
+      button.innerHTML = 'Change';
+      button.id = 'change';
+      button.onclick = function() {changeNetwork()};
+      topDiv.appendChild(button);
+      var net = localStorage.getItem("cs4770.login.network");
+      counts();
+      function loadNetworks() {
+        var sim = {Sim: localStorage.getItem("cs4770.login.sim")};
+        var pack = JSON.stringify(sim);
+        var r = '/register/client/networks';
+        ajax.ajax_req({
+          method: "POST",
+          url: r,
+          mime: 'application/json',
+          doc: pack,
+          ok: function(res) {
+            var resobj = JSON.parse(res.responseText);
+            if (resobj.length > 0) {
+              for (var i = 0; i < resobj.length; i++) {
+                var option = document.createElement('option');
+                option.value = resobj[i].Name;
+                option.text = resobj[i].Name;
+                option.id = resobj[i].Name;
+                if (resobj[i].Name == net)
+                  option.selected = true;
+                menu.add(option);
+              }
+            }
+          },
+          error: function(res) {
+            window.alert(res.status);
+          }
+        });
+      }
+      function counts() {
+        if (localStorage.getItem("lcount") != null) {
+          if (net != 'none')
+            document.getElementById("glob").innerHTML = localStorage.getItem("gcount"+net);
+          else
+            document.getElementById("glob").innerHTML = '0';
+          document.getElementById("loca").innerHTML = localStorage.getItem("lcount");
+        }
+      }
+    </script>
+  {{/content}}
+{{/layout}}

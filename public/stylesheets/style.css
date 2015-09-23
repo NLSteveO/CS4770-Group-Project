@@ -1,0 +1,178 @@
+html {
+  min-height: 100%;}
+body {
+  min-height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background: -webkit-linear-gradient(left top, #000140 , #03EDFF); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #000140 , #03EDFF); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #000140 , #03EDFF); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #000140 , #03EDFF); /* Standard syntax */} 
+#current {
+  color: #c00;
+  background-color: #fff; }
+#wrap {
+  width: 850px;
+  margin: 0 auto;
+  background-color: #fff; }
+#content {
+  padding: 50px 50px 50px;
+  background-color: #FFF; }
+#top {
+  border: 1px solid;
+  border-radius: 25px;
+  padding: 10px 30px 20px 50px;
+  background-color: #03EDFF;
+  overflow: hidden;}
+#top2 {
+  border: 1px solid;
+  border-radius: 25px;
+  padding: 10px 10px 10px 10px;
+  background-color: #03EDFF;
+  overflow: hidden;}
+table {
+  width: 100%}
+#bottom {
+  border: 1px solid;
+  border-radius: 25px;
+  padding: 10px 30px 20px 40px;
+  background-color: #03EDFF;
+  overflow: hidden;}
+.left, .right {
+  width: 47%;
+  padding: 0px 10px 10px;
+  display: inline;
+  float: left;
+  overflow: hidden;}
+nav {
+  width: 100%;
+  float: left;
+  margin: 0 0 3em 0;
+  padding: 0;
+  list-style: none;
+  display: block;
+  background-color: #03EDFF;
+  border-bottom: 1px solid #ccc; 
+  border-top: 1px solid #ccc; }
+#out {
+  float:right;
+  border-left: 1px solid #ccc;}
+nav a {
+  float: left;
+  display: block;
+  padding: 8px 15px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #069;
+  border-right: 1px solid #ccc; }
+nav a:hover {
+  color: #c00;
+  background-color: #fff; }
+h1 {
+  font-size: 1.75em;
+  padding: 1em 8px;
+  background-color: #069;
+  margin: 0; }
+h4 {
+  display:inline;}
+#addUser h4 {
+  float: left;
+  margin: 0 0 3em 0;
+  padding: 0;
+  list-style: none;
+  display: block;}
+#addUser input {
+  float: left;
+  margin: 0 0 3em 0;
+  padding: 0;
+  list-style: none;
+  display: block;}
+pre {
+  white-space: pre-wrap;       /* css-3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */}
+label {
+  display: inline-block;
+  float: left;
+  clear: left;
+  width: 130px;
+  text-align:left;}
+input .css {
+  display: inline-block;
+  float: left;}
+#wrong {
+  color: red;}
+  
+  
+div.client { border: 2px solid #000;
+               width:85px;
+               background-color: gray;
+               text-align:left;
+			   font-size:10px;
+			    font-family: Verdana,sans-serif;
+			    border-radius: 5px;
+				margin-top: 4px;
+				margin-bottom: 4px;  }
+				
+div.networks{display: inline-block;
+               
+				background-color: #ccc;
+				color: black;
+				-webkit-border-radius: 5px;
+				border-radius: 5px; 						
+				padding:12px;
+				border: 2px solid #000;				
+				font-family: Verdana,sans-serif;
+				margin-top:50px;
+				margin-left:100px;
+				float:left;
+				height:200px;
+				width:180px;
+  }
+
+
+#node1,#node2,#node3,#node4,#node5,#node6{ background-color:red; width:20px; border-radius: 50%;
+    
+	
+	margin-left:150px;
+	margin-top:100px;
+    text-align:center;    
+}
+
+#networkBox{
+  display: inline-block;
+width:100%;
+float:left;
+}
+#header{
+    background-color:gray;
+    color:white;
+    text-align:center;
+    padding:5px;
+
+}
+#nav0 {    
+    background-color:#eeeeee;
+    width:200px;
+    float:left;
+    padding:10px;
+    border:1px solid #d4d4d4;	
+}
+#nav1 {
+    padding:10px;
+	border-radius: 5px;
+    border:1px solid black;	
+}
+#nav2 {
+    padding:10px;
+	border-radius: 5px;
+    border:1px solid black;	
+}
+.dots {
+  background-color:red;
+  border-radius: 50%;
+  width: 20px;
+}

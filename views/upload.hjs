@@ -1,0 +1,63 @@
+<!-- Hogan.js file for error pages -->
+{{<layout}}
+  {{$content}}
+    <center>
+      <h2>Apps Page!</h2>
+    </center>
+    <div id='top'>
+      {{#status}}
+        <center>
+          <h3>{{status}}</h3>
+        </center>
+      {{/status}}
+      <form enctype="multipart/form-data" method="post" action="/upload">
+        <input type="text" name="folderName" id="folderName" placeholder="Your folder name here"/>
+        <input type="file" name="files" id="files" multiple />
+        <input type="submit" name="submit" value="Submit">
+      </form>
+    </div>
+    <div id="bottom">
+      <table id="filesTable">
+        <th>Current Apps and their files</th>
+        <tr>
+          <td>
+            <select name="apps" id="apps" onchange="listFiles()">
+              {{#apps}}
+                <option value="{{name}}">{{name}}</option>
+              {{/apps}}
+            </select>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <script>
+      window.addEventListener('load', listFiles());
+      function listFiles() {
+        var dir = {dir: document.getElementById('apps').value};
+        var pack = JSON.stringify(dir);
+        var r = '/upload/files';
+        ajax.ajax_req({
+          method: "POST",
+          url: r,
+          mime: 'application/json',
+          doc: pack,
+          ok: function(res) {
+            var table = document.getElementById('filesTable');
+            while (table.rows.length > 2) {
+              table.deleteRow(2);
+            }
+            var resobj = JSON.parse(res.responseText);
+            for (var i = 0; i < resobj.length; i++) {
+              var row = table.insertRow(-1);
+              row.innerHTML = "<td>"+resobj[i].name+"</td>";
+            }
+          },
+          error: function(res) {
+            window.alert(res.status);
+          }
+        });
+      }
+    </script>
+  {{/content}}
+{{/layout}}
+

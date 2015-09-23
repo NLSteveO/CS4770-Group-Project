@@ -1,0 +1,47 @@
+<!-- Hogan.js file for the registration page -->
+{{<layout}}
+  {{$content}}
+    <br>
+    <div id="top">
+      <center>
+        <h2>Registration</h2>
+      </center>
+      {{#client}}
+        <p>Please first select the simulation you are joining: </p>
+        <select name="sims" id="sims" onChange="loadNetworks()">
+          {{#sims}}
+            <option value="{{Token}}">{{Token}}</option>
+          {{/sims}}
+        </select><br><br>
+      {{/client}}
+      <label>Name: </label><input type="text" name="name" id="name" /><br><br>
+      <label>Username: </label><input type="text" name="username" id="username" /><br><br>
+      <label>Password: </label><input type="password" name="password" id="password" /><br><br>
+      {{#email}}
+        <label>Email: </label><input type="text" name="email" id="email" value="{{email}}" readonly /><br><br>
+      {{/email}}
+      {{^email}}
+        <label>Email: </label><input type="text" name="email" id="email" /><br><br>
+      {{/email}}
+      {{#token}}
+        <label>Token ID: </label><input type="text" name="token" id="token" value="{{token}}" readonly /><br><br>
+      {{/token}}
+      {{^token}}
+        <label>Token ID: </label><input type="text" name="token" id="token" /><br><br>
+      {{/token}}
+      {{#client}}
+      <label>Network: </label>
+      <select name="networks" id="networks">
+        <option value="none">no network</option>
+        {{#network}}
+          <option value="{{Name}}">{{Name}}</option>
+        {{/network}}
+      </select><br><br>
+        <button name="user" onClick="addclient()">Register</button><br>
+      {{/client}}
+      {{^client}}
+        <button name="user" onClick="addadmin()">Register</button><br>
+      {{/client}}
+    </div>
+  {{/content}}
+{{/layout}}
